@@ -2,8 +2,8 @@
 #include <ESP8266HTTPClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "VM4272188NN";
-const char* password = "sxjbYuekscx2";
+const char* ssid = "Your Wifi";
+const char* password = "Your Wifi Pass";
 
 const char* printerIP = "192.168.1.35";  // Replace with your Klipper IP
 const int printerPort = 7125;
@@ -27,8 +27,8 @@ void setup() {
   HTTPClient http;
 
   String url = getURL("/printer/objects/query?print_stats");
-  http.begin(client, url);  // ✅ Corrected
-  int httpCode = http.GET();  // ✅ Only one GET
+  http.begin(client, url);  // yo yo
+  int httpCode = http.GET();  // yo yo
 
   if (httpCode == HTTP_CODE_OK) {
     String payload = http.getString();
