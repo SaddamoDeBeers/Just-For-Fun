@@ -14,8 +14,8 @@
 MD_Parola matrix = MD_Parola(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 // Wi-Fi credentials
-const char* ssid = "VM4272188NN";
-const char* password = "sxjbYuekscx2";
+const char* ssid = "wifi name";
+const char* password = "wifi pass";
 
 // Klipper printer IP and port
 const char* printerIP = "192.168.1.35";
