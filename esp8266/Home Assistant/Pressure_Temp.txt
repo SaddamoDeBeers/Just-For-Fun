@@ -1,0 +1,46 @@
+esphome:
+  name: esp32-n1-sensor
+  friendly_name: "ESP32 N1 Sensor"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+api:
+
+ota:
+  platform: esphome
+
+wifi:
+  ssid: "fff"
+  password: "fff"
+  manual_ip:
+    static_ip: 192.168.1.71
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+
+i2c:
+  sda: GPIO21
+  scl: GPIO22
+
+sensor:
+  - platform: dht
+    model: DHT22
+    pin: GPIO4
+    temperature:
+      name: "Room Temperature"
+      id: room_temp
+    humidity:
+      name: "Room Humidity"
+      id: room_humidity
+    update_interval: 20s
+
+display:
+  - platform: lcd_pcf8574
+    dimensions: 16x2
+    address: 0x27
+    lambda: |-
+      it.printf(0, 0, "Temp: %.1f C", id(room_temp).state);
+      it.printf(0, 1, "Humid: %.1f %%", id(room_humidity).state);
